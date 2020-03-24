@@ -7,7 +7,8 @@ RUN apt-get update -qq && \
 	apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN sed -i "s/# DefaultRoot/DefaultRoot/" /etc/proftpd/proftpd.conf
+RUN sed -i "s/# DefaultRoot/DefaultRoot/" /etc/proftpd/proftpd.conf \
+	&& sed -i "s/# PassivePorts/PassivePorts/" /etc/proftpd/proftpd.conf
 
 EXPOSE 20 21
 
